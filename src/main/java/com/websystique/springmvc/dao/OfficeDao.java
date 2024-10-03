@@ -10,7 +10,7 @@ public interface OfficeDao {
 
     void save(Office office);
 
-    void update(int id);
+    void edit(int id);
     void deleteOfficeById(int id);
 
     List<Office> findAllOffices();

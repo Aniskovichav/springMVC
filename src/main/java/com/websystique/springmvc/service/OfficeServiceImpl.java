@@ -32,20 +32,17 @@ public class OfficeServiceImpl implements OfficeService{
 //            if();// check admin rights
         }
         entity.setName(office.getName());
-        entity.setName(office.getName());
+        entity.setAddress(office.getAddress());
         entity.setPostalCode(office.getPostalCode());
     }
 
     @Override
     public void updateOffice(Office office) {
+        logger.info("Updating Office ID: {}", office.getId());
         Office entity = dao.findById(office.getId());
-        if(entity!=null){
-            entity.setId(office.getId());
-//            if());// check admin rights
-            }
-            entity.setName(office.getName());
-            entity.setName(office.getName());
-            entity.setPostalCode(office.getPostalCode());
+        entity.setName(office.getName());
+        entity.setAddress(office.getAddress());
+        entity.setPostalCode(office.getPostalCode());
         }
 
 

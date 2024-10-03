@@ -32,8 +32,13 @@ public class OfficeDaoImpl extends AbstractDao<Integer, Office> implements Offic
     }
 
     @Override
-    public void update(int id) {
-
+    public void edit(int id) {
+        Office office = findById(id);
+        if (office != null){
+            office.setName(office.getName());
+            office.setAddress(office.getAddress());
+            office.setPostalCode(office.getPostalCode());
+        }
     }
 
     @Override
