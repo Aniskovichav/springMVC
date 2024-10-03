@@ -1,5 +1,6 @@
 package com.websystique.springmvc.model;
 
+import com.websystique.springmvc.dao.OfficeDaoImpl;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -17,17 +18,23 @@ public class Office implements Serializable{
 	private Integer id;
 
 	@NotEmpty
-	@Column(name="NAME_OFFICE", nullable=false)
+	@Column(name="name_office", nullable=true)
 	private String nameOffice;
 
 	@NotEmpty
-	@Column(name="ADDRESS", nullable=false)
+	@Column(name="address", nullable=false)
 	private String address;
 
-
-
 	@NotEmpty
-	@Column(name="EMAIL", nullable=false)
-	private String email;
+	@Column(name="postal_code", nullable=false)
+	private String postalCode;
 
+	public static void main(String[] args) {
+		Office office = new Office();
+		office.setNameOffice("asda");
+		office.setPostalCode("111111");
+		office.setAddress("NY");
+		OfficeDaoImpl dao = new OfficeDaoImpl();
+		dao.save(office);
+	}
 }

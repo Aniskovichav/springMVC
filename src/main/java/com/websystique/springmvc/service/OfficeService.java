@@ -1,16 +1,16 @@
-package com.websystique.springmvc.dao;
+package com.websystique.springmvc.service;
 
 import com.websystique.springmvc.model.Office;
 
 import java.util.List;
 
-public interface OfficeDao {
-
+public interface OfficeService {
     Office findById(int id);
 
-    void save(Office office);
+    void saveOffice(Office office);
 
-    void update(int id);
+    void updateOffice(Office office);
+
     void deleteOfficeById(int id);
 
     List<Office> findAllOffices();
