@@ -5,11 +5,13 @@ import com.websystique.springmvc.model.User;
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Objects;
 
 @Repository ("officeDao")
 public class OfficeDaoImpl extends AbstractDao<Integer, Office> implements OfficeDao {
@@ -37,6 +39,10 @@ public class OfficeDaoImpl extends AbstractDao<Integer, Office> implements Offic
     @Override
     public void deleteOfficeById(int id) {
 
+        Office office = findById(id);
+        if(office != null){
+            delete(office);
+        }
     }
 
     @Override

@@ -41,4 +41,10 @@ public class OfficesController {
               model.addAttribute("offices", offices);
         return "offices";
     }
+
+    @RequestMapping(value = { "/delete-office-{id}" }, method = RequestMethod.GET)
+    public String deleteOffices(@PathVariable String id) {
+        officeService.deleteOfficeById(Integer.parseInt(id));
+        return "redirect:/offices";
+    }
 }
