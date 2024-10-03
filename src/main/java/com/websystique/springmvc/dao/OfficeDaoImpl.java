@@ -2,7 +2,9 @@ package com.websystique.springmvc.dao;
 
 import com.websystique.springmvc.model.Office;
 import com.websystique.springmvc.model.User;
+import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
+import org.hibernate.criterion.Order;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -39,6 +41,9 @@ public class OfficeDaoImpl extends AbstractDao<Integer, Office> implements Offic
 
     @Override
     public List<Office> findAllOffices() {
-        return null;
+        Criteria criteria = createEntityCriteria().addOrder(Order.asc("address"));
+        criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);//To avoid duplicates.
+        List<Office> offices = (List<Office>) criteria.list();
+        return offices;
     }
 }

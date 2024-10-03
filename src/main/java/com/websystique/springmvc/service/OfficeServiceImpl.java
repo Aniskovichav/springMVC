@@ -2,7 +2,8 @@ package com.websystique.springmvc.service;
 
 import com.websystique.springmvc.dao.OfficeDao;
 import com.websystique.springmvc.model.Office;
-import com.websystique.springmvc.model.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +17,8 @@ public class OfficeServiceImpl implements OfficeService{
     @Autowired
     private OfficeDao dao;
 
+    static final Logger logger = LoggerFactory.getLogger(OfficeServiceImpl.class);
+
     @Override
     public Office findById(int id) {
         return dao.findById(id);
@@ -28,8 +31,8 @@ public class OfficeServiceImpl implements OfficeService{
             entity.setId(office.getId());
 //            if();// check admin rights
         }
-        entity.setNameOffice(office.getNameOffice());
-        entity.setNameOffice(office.getNameOffice());
+        entity.setName(office.getName());
+        entity.setName(office.getName());
         entity.setPostalCode(office.getPostalCode());
     }
 
@@ -40,8 +43,8 @@ public class OfficeServiceImpl implements OfficeService{
             entity.setId(office.getId());
 //            if());// check admin rights
             }
-            entity.setNameOffice(office.getNameOffice());
-            entity.setNameOffice(office.getNameOffice());
+            entity.setName(office.getName());
+            entity.setName(office.getName());
             entity.setPostalCode(office.getPostalCode());
         }
 

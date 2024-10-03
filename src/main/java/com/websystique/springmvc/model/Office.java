@@ -11,15 +11,15 @@ import java.util.Set;
 
 @Entity
 @Data
-@Table(name="APP_OFFICE")
+@Table(name="OFFICES")
 public class Office implements Serializable{
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 
 	@NotEmpty
-	@Column(name="name_office", nullable=true)
-	private String nameOffice;
+	@Column(name="name", nullable=true)
+	private String name;
 
 	@NotEmpty
 	@Column(name="address", nullable=false)
@@ -29,12 +29,12 @@ public class Office implements Serializable{
 	@Column(name="postal_code", nullable=false)
 	private String postalCode;
 
-	public static void main(String[] args) {
-		Office office = new Office();
-		office.setNameOffice("asda");
-		office.setPostalCode("111111");
-		office.setAddress("NY");
-		OfficeDaoImpl dao = new OfficeDaoImpl();
-		dao.save(office);
-	}
+//	public static void main(String[] args) {
+//		Office office = new Office();
+//		office.setNameOffice("asda");
+//		office.setPostalCode("111111");
+//		office.setAddress("NY");
+//		OfficeDaoImpl dao = new OfficeDaoImpl();
+//		dao.save(office);
+//	}
 }
